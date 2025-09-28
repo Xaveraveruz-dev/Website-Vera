@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vera Match | Website Vera</title>
   <style>
-    /* RESET */
     * {margin: 0; padding: 0; box-sizing: border-box;}
 
     body {
@@ -15,7 +14,6 @@
       line-height: 1.6;
     }
 
-    /* Navbar */
     nav {
       position: fixed;
       top: 0; left: 0;
@@ -35,7 +33,6 @@
     nav a:hover {color: #00ffcc;}
     nav a.active {color: #33ccff;}
 
-    /* Sections */
     section {
       min-height: 100vh;
       padding: 80px 20px;
@@ -45,7 +42,6 @@
       justify-content: center;
     }
 
-    /* Profile */
     #home img {
       width: 180px;
       height: 180px;
@@ -58,7 +54,6 @@
     #home h1 {font-size: 28px;}
     #home p {opacity: 0.8; margin-bottom: 20px;}
 
-    /* Buttons */
     .btn {
       display: block;
       margin: 10px auto;
@@ -74,7 +69,6 @@
     }
     .btn:hover {transform: scale(1.05);}
 
-    /* Card Container */
     .card {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -86,7 +80,6 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.4);
     }
 
-    /* Grid Produk */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -97,6 +90,7 @@
       padding: 15px;
       border-radius: 12px;
       transition: 0.3s;
+      text-align: center;
     }
     .product:hover {transform: scale(1.05);}
     .product img {
@@ -105,7 +99,6 @@
       margin-bottom: 10px;
     }
 
-    /* Kontak */
     form input, form textarea {
       width: 100%;
       padding: 10px;
@@ -124,7 +117,6 @@
       margin-top: 10px;
     }
 
-    /* Copy Button */
     .copy-btn {
       padding: 10px;
       border-radius: 8px;
@@ -135,7 +127,6 @@
       background: linear-gradient(to right, #33ccff, #00ffcc);
     }
 
-    /* Musik Button */
     #play-btn {
       position: fixed;
       bottom: 20px; right: 20px;
@@ -149,7 +140,6 @@
       z-index: 2000;
     }
 
-    /* Footer */
     footer {
       text-align: center;
       padding: 15px;
@@ -157,16 +147,50 @@
       margin-top: 30px;
     }
 
-    /* Responsive */
     @media(max-width:768px){
       nav {flex-wrap: wrap;}
       .btn {width: 100%;}
     }
+
+    /* Banner Promo */
+    #promo-banner {
+      position: fixed;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, #ff7f50, #ff4500);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      z-index: 1500;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      animation: slideDown 0.5s ease-out;
+    }
+    #promo-banner button {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: 0.3s;
+    }
+    #promo-banner button:hover {
+      background: rgba(255,255,255,0.4);
+    }
+    @keyframes slideDown {
+      from {transform: translate(-50%, -100px); opacity: 0;}
+      to {transform: translate(-50%, 0); opacity: 1;}
+    }
+
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
   <nav>
     <a href="#home" class="active">Home</a>
     <a href="#about">Tentang</a>
@@ -177,25 +201,41 @@
 
   <!-- Home -->
   <section id="home">
+    <!-- Promo Banner -->
+    <div id="promo-banner">
+      🎉 Dapatkan DISKON 15% untuk pembeli pertama!🔥🔥
+      <button id="close-promo">✖</button>
+    </div>
+
     <img src="https://files.catbox.moe/8t0e6x.jpg" alt="Profile Vera">
     <h1>Vera Matcha</h1>
     <p>Pengembang Web, Bot, & Konten Kreatif</p>
     <a href="https://wa.me/62881023484962" target="_blank" class="btn">WhatsApp</a>
-    <a href="https://instagram.com/" target="_blank" class="btn">Instagram</a>
-    <a href="https://youtube.com/" target="_blank" class="btn">YouTube</a>
-    <a href="https://github.com/" target="_blank" class="btn">GitHub</a>
+    <a href="https://instagram.com/vera_matcha22" target="_blank" class="btn">Instagram</a>
+    <a href="https://youtube.com/@usernamekamu" target="_blank" class="btn">YouTube</a>
+
+    <!-- Tambahan Payment di Home -->
+    <div class="grid" style="margin-top:20px;">
+      <div class="product">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Dana_logo.png" alt="Dana">
+        <p>DANA - 085314644641</p>
+        <button class="copy-btn" onclick="copyText('085314644641')">Salin Nomor</button>
+      </div>
+      <div class="product">
+        <img src="https://files.catbox.moe/sby0vb.jpeg" alt="QRIS" style="max-width:250px; border-radius:10px;">
+        <p>Scan QRIS untuk pembayaran cepat</p>
+      </div>
+    </div>
+
+    <a href="#pembayaran" class="btn">💳 Detail Pembayaran</a>
   </section>
 
-  <!-- About -->
+  <!-- Tentang -->
   <section id="about">
     <div class="card">
       <h2>Tentang Kami</h2>
-      <img src="https://files.catbox.moe/8t0e6x.jpg" alt="Tentang Kami" style="border-radius:12px; width:100%; max-width:400px; margin:15px auto; display:block;">
-      <p>
-        Kami menyediakan layanan pembuatan website, bot Telegram & WhatsApp, 
-        serta jasa editing foto/video. Didesain khusus untuk kebutuhan personal 
-        maupun bisnis online.
-      </p>
+      <img src="https://files.catbox.moe/hhvcso.png" alt="Tentang Kami" style="border-radius:12px; width:100%; max-width:400px; margin:15px auto; display:block;">
+      <p>Kami menyediakan layanan pembuatan website, dan jasa editing foto/video. Didesain khusus untuk kebutuhan personal maupun bisnis online.</p>
     </div>
   </section>
 
@@ -204,13 +244,13 @@
     <h2>Toko Produk</h2>
     <div class="grid">
       <div class="product">
-        <img src="https://files.catbox.moe/8t0e6x.jpg" alt="Bot Telegram">
-        <h3>🤖 Bot Telegram</h3>
+        <img src="https://files.catbox.moe/a9a0j6.jpg" alt="Bot Telegram">
+        <h3>🤖 Bot Tele</h3>
         <p>Bot custom dengan fitur sesuai permintaanmu.</p>
-        <a href="https://wa.me/6281234567890" class="btn">Pesan</a>
+        <a href="https://wa.me/6285117374133" class="btn">Pesan</a>
       </div>
       <div class="product">
-        <img src="https://files.catbox.moe/8t0e6x.jpg" alt="Bot WhatsApp">
+        <img src="https://files.catbox.moe/i1qsku.jpg" alt="Bot WhatsApp">
         <h3>💬 Bot WhatsApp</h3>
         <p>Bot canggih untuk bisnis dan komunitas.</p>
         <a href="https://wa.me/62881023484962" class="btn">Pesan</a>
@@ -220,7 +260,6 @@
 
   <!-- Pembayaran -->
   <section id="pembayaran">
-    <h2>Pembayaran</h2>
     <div class="grid">
       <div class="product">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Dana_logo.png" alt="Dana">
@@ -228,14 +267,8 @@
         <button class="copy-btn" onclick="copyText('085314644641')">Salin Nomor</button>
       </div>
       <div class="product">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/Logo_ovo_purple.svg" alt="OVO">
-        <p>OVO - 081234567890</p>
-        <button class="copy-btn" onclick="copyText('081234567890')">Salin Nomor</button>
-      </div>
-      <div class="product">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Gopay_logo.svg" alt="Gopay">
-        <p>Gopay - 081234567890</p>
-        <button class="copy-btn" onclick="copyText('081234567890')">Salin Nomor</button>
+        <img src="https://files.catbox.moe/sby0vb.jpeg" alt="QRIS" style="max-width:250px; border-radius:10px;">
+        <p>Scan QRIS untuk pembayaran cepat</p>
       </div>
     </div>
   </section>
@@ -254,20 +287,18 @@
   </section>
 
   <!-- Musik -->
-  <audio id="bg-music" loop>
+  <audio id="bg-music" loop autoplay>
     <source src="https://files.catbox.moe/jnk3uf.mp3" type="audio/mpeg">
     Browser tidak mendukung audio.
   </audio>
   <button id="play-btn">▶ Play Musik</button>
 
-  <!-- Footer -->
   <footer>
-    &copy; Vera Match | Dibuat dengan acode and website vercell
+    &copy; Vera Match | Dibuat dengan Acode dan Vercel
   </footer>
 
-  <!-- Script -->
   <script>
-    // Smooth Scroll + Active Menu
+    // Navigasi smooth scroll
     document.querySelectorAll("nav a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
@@ -278,14 +309,14 @@
       });
     });
 
-    // Copy Nomor
+    // Copy nomor
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
         alert("Nomor berhasil disalin: " + text);
       });
     }
 
-    // Validasi Form
+    // Form validation
     function validateForm() {
       let nama = document.getElementById("nama").value.trim();
       let email = document.getElementById("email").value.trim();
@@ -299,10 +330,9 @@
       return true;
     }
 
-    // Musik Play/Pause
+    // Musik play/pause
     const music = document.getElementById("bg-music");
     const btn = document.getElementById("play-btn");
-
     btn.addEventListener("click", () => {
       if (music.paused) {
         music.play();
@@ -312,6 +342,12 @@
         btn.textContent = "▶ Play Musik";
       }
     });
+
+    // Promo banner
+    const promo = document.getElementById("promo-banner");
+    const closeBtn = document.getElementById("close-promo");
+    closeBtn.addEventListener("click", () => { promo.style.display = "none"; });
+    setTimeout(() => { if (promo) promo.style.display = "none"; }, 10000);
   </script>
 </body>
 </html>
